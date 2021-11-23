@@ -14,7 +14,7 @@ void check(int ac, char **av)
 		usage();
 
 	ifstream file1;
-	file1.open (av[1]);
+	file1.open(av[1]);
 	if (!file1)
 		usage();
 	file1.close();
@@ -23,6 +23,6 @@ void check(int ac, char **av)
 int main(int ac, char **av)
 {
 	check(ac, av);
-	algo();
+	algo(av);
 	return (84);
 }

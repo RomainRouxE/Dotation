@@ -8,6 +8,6 @@
 
 using namespace std;
 
-int algo();
+int algo(char **av);
 
 #endif
