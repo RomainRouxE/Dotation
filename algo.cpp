@@ -7,6 +7,8 @@ int algo(char **av)
 	ofstream newfile("dotation.csv");
 
 	string line;
+	int numCol = 105;
+
 	for (int row = 0;; ++row)
 	{
 		getline(file, line);
@@ -17,7 +19,7 @@ int algo(char **av)
 
 		if (row == 0)
 		{
-			for (int col1 = 0; col1 < 105; ++col1)
+			for (int col1 = 0; col1 < numCol; ++col1)
 			{
 				string val;
 				getline(iss, val, ',');
@@ -30,7 +32,7 @@ int algo(char **av)
 		}
 		else
 		{
-			for (int col = 0; col < 105; col++)
+			for (int col = 0; col < numCol; col++)
 			{
 				string val;
 				getline(iss, val, ',');
@@ -39,9 +41,10 @@ int algo(char **av)
 
 				stringstream convertor(val);
 				convertor >> data[1][col];
+				cout << data[1][col] + ",";
 			}
-
-			for (int j = 1; j < 105; ++j)
+			cout << endl;
+			for (int j = 1; j < numCol; ++j)
 			{
 				newfile << data[1][0];
 				newfile << ";";
@@ -53,8 +56,10 @@ int algo(char **av)
 					newfile << "0";
 				else
 					newfile << data[1][j];
+				cout << data[1][j] + ",";
 				newfile << '\n';
 			}
+			cout << endl;
 		}
 	}
 }
