@@ -1,13 +1,14 @@
 #include "main.hpp"
 
-int algo(char **av)
+/* Algo to put data in dotationFinal.csv file. */
+int algo(int col)
 {
 	string data[2][150];
-	ifstream file(av[1]);
-	ofstream newfile("dotation.csv");
+	ifstream file("dotation.csv");
+	ofstream newfile("dotationFinal.csv");
 
 	string line;
-	int numCol = 105;
+	int numCol = col + 1;
 
 	for (int row = 0;; ++row)
 	{
@@ -52,11 +53,9 @@ int algo(char **av)
 				newfile << data[0][j];
 				newfile << ";";
 
-				if (data[1][j] == "")
-					newfile << "0";
-				else
-					newfile << data[1][j];
+				newfile << data[1][j];
 				cout << data[1][j] + ",";
+
 				newfile << '\n';
 			}
 			cout << endl;
